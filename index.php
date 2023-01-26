@@ -11,6 +11,9 @@
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
         }
+        .errorMess{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -29,26 +32,31 @@
         <span>StaffPass: </span><input type="text" id="staffpass"> <br>
         <br>
         <input type="submit" id="validate" value="Se connecter">
+        <p class="errorMess" id="errorMess"></p>
         </form> 
     </div>
 
     <script>  
             function validation()  
-            {  
+            {   
+                let errorTxtZone=document.getElementById('errorMess')
                 let id=document.f1.id.value;  
                 let ps=document.f1.pass.value;  
                 if(id.length=="" && ps.length=="") {  
-                    alert("User Name and Password fields are empty");  
+                    //alert("User Name and Password fields are empty");
+                    errorTxtZone.innerHTML='Merci de renseigner votre identifiant et votre mot de passe.'
                     return false;  
                 }  
                 else  
                 {  
                     if(id.length=="") {  
-                        alert("User Name is empty");  
+                        //alert("User Name is empty"); 
+                        errorTxtZone.innerHTML='Merci de renseigner votre identifiant.' 
                         return false;  
                     }   
                     if (ps.length=="") {  
-                    alert("Password field is empty");  
+                    //alert("Password field is empty");  
+                    errorTxtZone.innerHTML='Merci de renseigner votre mot de passe.' 
                     return false;  
                     }
                 }                             
@@ -56,3 +64,14 @@
         </script>  
 </body>
 </html>
+
+<?php
+$slide = $_GET["error"] ?? '';
+if (trim($slide) == 'invalid'):
+?>
+
+<script>
+        let errorTxtZone=document.getElementById('errorMess')
+        errorTxtZone.innerHTML='L\'identifiant et/ou le mot de passe semble(nt) ne pas être correct(s)'
+</script>
+<?php endif; ?>

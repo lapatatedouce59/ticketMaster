@@ -8,11 +8,10 @@ Les utilisateurs peuvent consulter leurs tickets en cours. <br>
 Les opérateurs peuvent ajouter des tags, trier, classer et répondre aux tickets. <br>
 
 ### FEATURES:
-> 🟥 Module de connexion utilisateurs <br>
+> 🟨 Module de connexion utilisateurs <br>
 > 🟥 Module de création de ticket <br>
 > 🟥 Module d'affichage utilisateur <br>
 > 🟥 Module d'affichage opérateur <br>
 > 🟥 Module de tags, tri, et autre <br>
-> 🟥 Sons de rame steady <br>
 
 Aucune page de test disponible pour le moment, à voir dans le futur.

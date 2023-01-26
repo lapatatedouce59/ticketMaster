@@ -15,9 +15,17 @@
     $count = mysqli_num_rows($result);  
     
     if($count == 1){  
-        echo "<h1><center> Login successful </center></h1>";  
+        echo "<h1><center> Login successful. Creating session and redirecting... </center></h1>";
+        session_regenerate_id();
+		$_SESSION['loggedin'] = TRUE;
+		$_SESSION['name'] = $_POST['username'];
+
+        header("Location: home.php");
+        die();
     }  
     else{  
-        echo "<h1> Login failed. Invalid username or password.</h1>";  
-        }     
-?>  
+        echo "<h1> Login failed. Invalid username or password.</h1>";
+        header("Location: index.php?error=invalid");
+        die();
+    }     
+?>
